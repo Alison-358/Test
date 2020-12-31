@@ -17,9 +17,13 @@ namespace Infrastructure.Data.Context.Mapping
                    .HasColumnName("Id")
                    .IsRequired();
 
+            builder.HasIndex(p => p.Name)
+                   .IsUnique();
+
             builder.Property(p => p.Name)
                    .HasColumnType("VARCHAR(200)")
                    .HasColumnName("Name")
+                   .HasMaxLength(200)
                    .IsRequired();
 
             builder.Property(ur => ur.LastUpdateDate)
@@ -30,6 +34,7 @@ namespace Infrastructure.Data.Context.Mapping
             builder.Property(ur => ur.LastUpdateUser)
                    .IsRequired()
                    .HasColumnType("VARCHAR(150)")
+                   .HasMaxLength(150)
                    .HasColumnName("LastUpdateUser");
 
             builder.ToTable("Role");

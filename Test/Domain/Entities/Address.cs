@@ -17,16 +17,21 @@ namespace Domain.Entities
 
         public static implicit operator AddressDto(Address address)
         {
-            return new Address()
+            if(address != null)
             {
-                Complement = address.Complement,
-                Description = address.Description,
-                Id = address.Id,
-                LastUpdateDate = address.LastUpdateDate,
-                LastUpdateUser = address.LastUpdateUser,
-                Neighborhood = address.Neighborhood,
-                Number = address.Number
-            };
+                return new AddressDto()
+                {
+                    Complement = address.Complement,
+                    Description = address.Description,
+                    Id = address.Id,
+                    LastUpdateDate = address.LastUpdateDate,
+                    LastUpdateUser = address.LastUpdateUser,
+                    Neighborhood = address.Neighborhood,
+                    Number = address.Number
+                };
+            }
+
+            return null;
         }
     }
 }

@@ -23,29 +23,36 @@ namespace Infrastructure.Data.Context.Mapping
             builder.Property(ur => ur.LastUpdateUser)
                    .IsRequired()
                    .HasColumnType("VARCHAR(150)")
+                   .HasMaxLength(150)
                    .HasColumnName("LastUpdateUser");
 
             builder.Property(p => p.Name)
                    .HasColumnType("VARCHAR(200)")
                    .HasColumnName("Name")
+                   .HasMaxLength(200)
                    .IsRequired();
 
             builder.Property(p => p.Password)
                    .HasColumnType("VARCHAR(50)")
                    .HasColumnName("Password")
+                   .HasMaxLength(50)
                    .IsRequired();
+
+            builder.HasIndex(p => p.Email)
+                   .IsUnique();
 
             builder.Property(p => p.Email)
                    .HasColumnType("VARCHAR(150)")
                    .HasColumnName("Email")
+                   .HasMaxLength(150)
                    .IsRequired();
 
-            builder.Property(p => p.Role.Id)
+            builder.Property(p => p.RoleId)
                    .HasColumnType("INT")
                    .HasColumnName("RoleId")
                    .IsRequired();
 
-            builder.ToTable("UserSystem");
+            builder.ToTable("User");
         }
     }
 }

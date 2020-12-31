@@ -24,8 +24,15 @@ namespace Service.Services
             _sessionCurrent = sessionCurrent;
         }
 
+        private void SetDateAndUserValuesBySession(AddressDto addressDto)
+        {
+            addressDto.LastUpdateUser = "Sem sessão por enquanto";//_sessionCurrent.UserName();
+            addressDto.LastUpdateDate = DateTime.Now;
+        }
+
         public Task<AddressDto> AddAsync(AddressDto addressDto)
         {
+            this.SetDateAndUserValuesBySession(addressDto);
             _address = addressDto;
             addressDto = _addressService.AddAsync(_address).Result;
             return Task.Run(() => addressDto);
@@ -84,11 +91,13 @@ namespace Service.Services
 
         public void RemoveById(int addressDtoId)
         {
-            throw new NotImplementedException();
+            _address = new Address() { Id = addressDtoId };
+            _addressService.Remove(_address);
         }
 
         public Task<AddressDto> EditAsync(AddressDto addressDto)
         {
+            this.SetDateAndUserValuesBySession(addressDto);
             _address = addressDto;
             _addressDto = _addressService.EditAsync(_address).Result;
             return Task.Run(() => addressDto); 

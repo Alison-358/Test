@@ -23,28 +23,33 @@ namespace Infrastructure.Data.Context.Mapping
             builder.Property(ur => ur.LastUpdateUser)
                    .IsRequired()
                    .HasColumnType("VARCHAR(150)")
+                   .HasMaxLength(150)
                    .HasColumnName("LastUpdateUser");
 
             builder.Property(p => p.Description)
                    .HasColumnType("VARCHAR(200)")
                    .HasColumnName("Description")
+                   .HasMaxLength(200)
                    .IsRequired();
 
             builder.Property(p => p.Complement)
                    .HasColumnType("VARCHAR(200)")
+                   .HasMaxLength(200)
                    .HasColumnName("Complement");
 
             builder.Property(p => p.Neighborhood)
                    .HasColumnType("VARCHAR(150)")
+                   .HasMaxLength(200)
                    .HasColumnName("Neighborhood")
                    .IsRequired();
 
             builder.Property(p => p.Number)
                    .HasColumnType("VARCHAR(50)")
                    .HasColumnName("Number")
+                   .HasMaxLength(50)
                    .IsRequired();
 
-            builder.ToTable("UserSystem");
+            builder.ToTable("Address");
         }
     }
 }

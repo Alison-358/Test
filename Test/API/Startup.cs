@@ -18,6 +18,10 @@ using Infrastructure.Data.Repositories;
 using Domain.Services;
 using Service.Interfaces;
 using Service.Services;
+using Microsoft.AspNetCore.Http;
+using System.Security.Principal;
+using Service.Interfaces.Generics;
+using Service.Session;
 
 namespace API
 {
@@ -39,8 +43,11 @@ namespace API
             //    opt => opt.UseSqlServer(connection, op => op.EnableRetryOnFailure())
             //);
 
+
             //Injeção de dependências
             services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
+
+            services.AddScoped(typeof(ISessionCurrent), typeof(SessionCurrent));
 
             services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
             services.AddScoped(typeof(IUserService), typeof(UserService));
@@ -50,9 +57,18 @@ namespace API
 
             services.AddScoped(typeof(IAddressRepository), typeof(AddressRepository));
             services.AddScoped(typeof(IAddressBusinessService), typeof(AddressBusinessService));
-            services.AddScoped(typeof(IRoleService), typeof(RoleService));
+            services.AddScoped(typeof(IAddressService), typeof(AddressService));
 
-            services.AddControllers();
+            services.AddCors();
+            services.AddMvc()
+                    .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<IPrincipal>(
+                provider => provider.GetService<IHttpContextAccessor>().HttpContext.User);
+
+            services.AddControllers()
+                    .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,12 +78,26 @@ namespace API
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
+
+            app.UseCors(builder => builder
+                .SetIsOriginAllowed(_ => true)
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials()
+            );
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
