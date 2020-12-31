@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "k07zO91swmGlgdAoPN4ZJWvix9mdBzhIpybcEeDJbdy/waR0jiwvnBwwEjzj+rq/oyjSu+ls3x8FmTW0kgVSaw==",
+  "dgSpecHash": "0tTG1pkeHSnB4RTY6042XyuNiZED33kjbcteUA2sipC2bhaVDGNzHsWeNS+6xTPICLx8oitQRBxbW3s+TWNorQ==",
   "success": true,
   "projectFilePath": "D:\\Users\\aliso\\Desktop\\Projects\\Versionados\\Test\\Test\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,7 @@
     "C:\\Users\\Alisson\\.nuget\\packages\\microsoft.entityframeworkcore.design\\3.1.5\\microsoft.entityframeworkcore.design.3.1.5.nupkg.sha512",
     "C:\\Users\\Alisson\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\3.1.5\\microsoft.entityframeworkcore.relational.3.1.5.nupkg.sha512",
     "C:\\Users\\Alisson\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\3.1.5\\microsoft.entityframeworkcore.sqlserver.3.1.5.nupkg.sha512",
+    "C:\\Users\\Alisson\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\3.1.5\\microsoft.entityframeworkcore.tools.3.1.5.nupkg.sha512",
     "C:\\Users\\Alisson\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.5\\microsoft.extensions.caching.abstractions.3.1.5.nupkg.sha512",
     "C:\\Users\\Alisson\\.nuget\\packages\\microsoft.extensions.caching.memory\\3.1.5\\microsoft.extensions.caching.memory.3.1.5.nupkg.sha512",
     "C:\\Users\\Alisson\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.5\\microsoft.extensions.configuration.3.1.5.nupkg.sha512",

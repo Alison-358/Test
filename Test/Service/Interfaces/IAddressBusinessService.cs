@@ -8,9 +8,9 @@ namespace Service.Interfaces
 {
     public interface IAddressBusinessService
     {
-        object GetAddressPager(string filter, int? addressId, string shortDirection, bool? isDisabled, string orderBy, int? pageSize, int? page);
+        object GetAddressPager(string filter, int? addressId, int? pageSize, int? page);
         Task<AddressDto> GetAddressByIdAsync(int id);
-        Task<AddressDto> UpdateAsync(AddressDto addressDto);
+        Task<AddressDto> EditAsync(AddressDto addressDto);
         Task<AddressDto> AddAsync(AddressDto addressDto);
         void RemoveById(int addressDtoId);
         void Remove(AddressDto addressDtoDto);

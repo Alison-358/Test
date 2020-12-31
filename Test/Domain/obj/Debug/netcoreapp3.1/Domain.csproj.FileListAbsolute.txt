@@ -9,3 +9,4 @@ D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Domain\obj\Debug\netcoreap
 D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Domain\obj\Debug\netcoreapp3.1\Domain.dll
 D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Domain\obj\Debug\netcoreapp3.1\Domain.pdb
 D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Domain\obj\Debug\netcoreapp3.1\Domain.genruntimeconfig.cache
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Domain\obj\Debug\netcoreapp3.1\Domain.csprojAssemblyReference.cache

@@ -41,7 +41,7 @@ namespace Infrastructure.Data.Repositories
             }
         }
 
-        public async Task Delete(T entity)
+        public async Task Remove(T entity)
         {
             try
             {
@@ -98,7 +98,7 @@ namespace Infrastructure.Data.Repositories
             return await _dataSet.FromSqlRaw<T>(query).FirstOrDefaultAsync();
         }
 
-        public async Task<T> UpdateAsync(T entity)
+        public async Task<T> EditAsync(T entity)
         {
             try
             {

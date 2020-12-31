@@ -11,7 +11,8 @@
           "Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "3.1.5",
           "Microsoft.EntityFrameworkCore.Relational": "3.1.5",
-          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.5"
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.5",
+          "Microsoft.EntityFrameworkCore.Tools": "3.1.5"
         },
         "runtime": {
           "Infrastructure.dll": {}
@@ -127,6 +128,11 @@
             "assemblyVersion": "3.1.5.0",
             "fileVersion": "3.100.520.27007"
           }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Tools/3.1.5": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": "3.1.5"
         }
       },
       "Microsoft.Extensions.Caching.Abstractions/3.1.5": {
@@ -945,6 +951,13 @@
       "sha512": "sha512-wwrQrxAtpMAZjEgiCkCfRkekWQMDtowYUmDKQ3f4iLcXuIx2h/tbgU6MV9Kc+VOyQxC3D6Kt6amwsB8g9Kc/WA==",
       "path": "microsoft.entityframeworkcore.sqlserver/3.1.5",
       "hashPath": "microsoft.entityframeworkcore.sqlserver.3.1.5.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Tools/3.1.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8vv6M1/HyoQuuvPZ9aL0HycCJdxEWLULMxFA9oRjRLBg70oo4Y2lKt7VpZT/zIOi/BFyq+H25JFT6+S7vYxakQ==",
+      "path": "microsoft.entityframeworkcore.tools/3.1.5",
+      "hashPath": "microsoft.entityframeworkcore.tools.3.1.5.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/3.1.5": {
       "type": "package",

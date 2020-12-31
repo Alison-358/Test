@@ -22,9 +22,9 @@ namespace Domain.Services
             return entityDB;
         }
 
-        public async Task Delete(T entity)
+        public async Task Remove(T entity)
         {
-            await _repository.Delete(entity);
+            await _repository.Remove(entity);
         }
 
         public void Dispose()
@@ -67,9 +67,9 @@ namespace Domain.Services
             return await _repository.SQLQueryStringSingleAsync(query);
         }
 
-        public async Task<T> UpdateAsync(T entity)
+        public async Task<T> EditAsync(T entity)
         {
-            return await _repository.UpdateAsync(entity);
+            return await _repository.EditAsync(entity);
         }
     }
 }

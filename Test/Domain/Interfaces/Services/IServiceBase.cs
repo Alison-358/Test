@@ -10,8 +10,8 @@ namespace Domain.Interfaces.Services
         Task<List<T>> GetAllAsync();
         Task<T> AddAsync(T entity);
         Task<T> GetByIdAsync(int id);
-        Task<T> UpdateAsync(T entity);
-        Task Delete(T entity);
+        Task<T> EditAsync(T entity);
+        Task Remove(T entity);
         Task<List<T>> SQLQueryStringListAsync(string query);
         Task<T> SQLQueryStringSingleAsync(string query);
         T GetById(int id);

@@ -1293,6 +1293,19 @@
         "runtime": {
           "bin/placeholder/Infrastructure.dll": {}
         }
+      },
+      "Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Service.dll": {}
+        }
       }
     }
   },
@@ -4949,12 +4962,18 @@
       "type": "project",
       "path": "../Infrastructure/Infrastructure.csproj",
       "msbuildProject": "../Infrastructure/Infrastructure.csproj"
+    },
+    "Service/1.0.0": {
+      "type": "project",
+      "path": "../Service/Service.csproj",
+      "msbuildProject": "../Service/Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Infrastructure >= 1.0.0",
-      "Microsoft.EntityFrameworkCore.Design >= 3.1.5"
+      "Microsoft.EntityFrameworkCore.Design >= 3.1.5",
+      "Service >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -4990,6 +5009,9 @@
           "projectReferences": {
             "D:\\Users\\aliso\\Desktop\\Projects\\Versionados\\Test\\Test\\Infrastructure\\Infrastructure.csproj": {
               "projectPath": "D:\\Users\\aliso\\Desktop\\Projects\\Versionados\\Test\\Test\\Infrastructure\\Infrastructure.csproj"
+            },
+            "D:\\Users\\aliso\\Desktop\\Projects\\Versionados\\Test\\Test\\Service\\Service.csproj": {
+              "projectPath": "D:\\Users\\aliso\\Desktop\\Projects\\Versionados\\Test\\Test\\Service\\Service.csproj"
             }
           }
         }

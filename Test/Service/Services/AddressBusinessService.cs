@@ -1,9 +1,11 @@
 ﻿using Domain.Dto;
+using Domain.Entities;
 using Domain.Interfaces.Services;
 using Service.Interfaces;
 using Service.Interfaces.Generics;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +15,8 @@ namespace Service.Services
     {
         private readonly IAddressService _addressService;
         private readonly ISessionCurrent _sessionCurrent;
+        private Address _address = new Address();
+        private AddressDto _addressDto = new AddressDto();
 
         public AddressBusinessService(IAddressService addressService, ISessionCurrent sessionCurrent)
         {
@@ -22,22 +26,60 @@ namespace Service.Services
 
         public Task<AddressDto> AddAsync(AddressDto addressDto)
         {
-            throw new NotImplementedException();
+            _address = addressDto;
+            addressDto = _addressService.AddAsync(_address).Result;
+            return Task.Run(() => addressDto);
         }
 
         public Task<AddressDto> GetAddressByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            _address = _addressService.GetById(id);
+            _addressDto = _address;
+            return Task.Run(() => _addressDto);
         }
 
-        public object GetAddressPager(string filter, int? addressId, string shortDirection, bool? isDisabled, string orderBy, int? pageSize, int? page)
+        public object GetAddressPager(string filter, int? addressId, int? pageSize, int? page)
         {
-            throw new NotImplementedException();
+            var maxRows = 0;
+
+            string queryCount = $@"
+                                DECLARE @name VARCHAR(100), @id INT, @isDisabled BIT
+
+                                SET @name = '{filter}'
+                                SET @id = '{addressId}'
+
+                                IF @id = 0
+                                    SET @id = null
+
+                                SELECT * FROM (
+                                SELECT ROW_NUMBER() OVER (ORDER BY Id Asc) AS row_number, * FROM
+                                Address 
+                                WHERE (@name IS NULL OR Complement LIKE '%'+@name+'%' OR Description LIKE '%'+@name+'%'
+                                        OR Number LIKE '%'+@name+'%' OR Neighborhood LIKE '%'+@name+'%'
+                                      ) AND
+                                (@id IS NULL OR Id = @id))
+                                NumberedTable";
+
+            var listQueryUserCount = _addressService.SQLQueryStringList(queryCount).ToList();
+
+            if (maxRows == 0)
+                maxRows = listQueryUserCount.Count();
+
+            var listDto = listQueryUserCount.Select(p => (AddressDto) p).ToList();
+
+            var objParam = new
+            {
+                filter = filter,
+                id = addressId
+            };
+
+            return Utils.Helpers.Paginate.Paged<AddressDto>.Pagination(listDto, maxRows, objParam, pageSize, page);
         }
 
-        public void Remove(AddressDto addressDtoDto)
+        public void Remove(AddressDto addressDto)
         {
-            throw new NotImplementedException();
+            _address = addressDto;
+            _addressService.Remove(_address);
         }
 
         public void RemoveById(int addressDtoId)
@@ -45,9 +87,11 @@ namespace Service.Services
             throw new NotImplementedException();
         }
 
-        public Task<AddressDto> UpdateAsync(AddressDto addressDto)
+        public Task<AddressDto> EditAsync(AddressDto addressDto)
         {
-            throw new NotImplementedException();
+            _address = addressDto;
+            _addressDto = _addressService.EditAsync(_address).Result;
+            return Task.Run(() => addressDto); 
         }
     }
 }
