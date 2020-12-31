@@ -9,6 +9,6 @@ namespace Domain.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public string LastUpdateUser { get; set; }
-        public DateTime LastUpdateTime { get; set; }
+        public DateTime LastUpdateDate { get; set; }
     }
 }

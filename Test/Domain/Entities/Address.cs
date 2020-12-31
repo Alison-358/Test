@@ -12,6 +12,6 @@ namespace Domain.Entities
         public string Neighborhood { get; set; }
         public string Complement { get; set; }
         public string LastUpdateUser { get; set; }
-        public DateTime LastUpdateTime { get; set; }
+        public DateTime LastUpdateDate { get; set; }
     }
 }

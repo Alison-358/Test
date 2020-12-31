@@ -1,0 +1,11 @@
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Domain\bin\Debug\netcoreapp3.1\Domain.deps.json
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Domain\bin\Debug\netcoreapp3.1\Domain.runtimeconfig.json
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Domain\bin\Debug\netcoreapp3.1\Domain.runtimeconfig.dev.json
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Domain\bin\Debug\netcoreapp3.1\Domain.dll
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Domain\bin\Debug\netcoreapp3.1\Domain.pdb
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Domain\obj\Debug\netcoreapp3.1\Domain.AssemblyInfoInputs.cache
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Domain\obj\Debug\netcoreapp3.1\Domain.AssemblyInfo.cs
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Domain\obj\Debug\netcoreapp3.1\Domain.csproj.CoreCompileInputs.cache
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Domain\obj\Debug\netcoreapp3.1\Domain.dll
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Domain\obj\Debug\netcoreapp3.1\Domain.pdb
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Domain\obj\Debug\netcoreapp3.1\Domain.genruntimeconfig.cache
