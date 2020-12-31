@@ -1,0 +1,12 @@
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Service\bin\Debug\netcoreapp3.1\Service.deps.json
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Service\bin\Debug\netcoreapp3.1\Service.dll
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Service\bin\Debug\netcoreapp3.1\Service.pdb
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Service\bin\Debug\netcoreapp3.1\Domain.dll
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Service\bin\Debug\netcoreapp3.1\Domain.pdb
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Service\obj\Debug\netcoreapp3.1\Service.csprojAssemblyReference.cache
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Service\obj\Debug\netcoreapp3.1\Service.AssemblyInfoInputs.cache
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Service\obj\Debug\netcoreapp3.1\Service.AssemblyInfo.cs
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Service\obj\Debug\netcoreapp3.1\Service.csproj.CoreCompileInputs.cache
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Service\obj\Debug\netcoreapp3.1\Service.csproj.CopyComplete
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Service\obj\Debug\netcoreapp3.1\Service.dll
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\Service\obj\Debug\netcoreapp3.1\Service.pdb

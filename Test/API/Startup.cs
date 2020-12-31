@@ -15,6 +15,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Infrastructure.Data.Repositories;
+using Domain.Services;
+using Service.Interfaces;
+using Service.Services;
 
 namespace API
 {
@@ -39,9 +42,15 @@ namespace API
             //Injeção de dependências
             services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
 
-            //services.AddScoped(typeof(IUserSystemRepository), typeof(UserSystemRepository));
-            //services.AddScoped(typeof(IUserSystemBusinessService), typeof(UserSystemBusinessService));
-            //services.AddScoped(typeof(IUserSystemService), typeof(UserSystemService));
+            services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
+            services.AddScoped(typeof(IUserService), typeof(UserService));
+
+            services.AddScoped(typeof(IRoleRepository), typeof(RoleRepository));
+            services.AddScoped(typeof(IRoleService), typeof(RoleService));
+
+            services.AddScoped(typeof(IAddressRepository), typeof(AddressRepository));
+            services.AddScoped(typeof(IAddressBusinessService), typeof(AddressBusinessService));
+            services.AddScoped(typeof(IRoleService), typeof(RoleService));
 
             services.AddControllers();
         }

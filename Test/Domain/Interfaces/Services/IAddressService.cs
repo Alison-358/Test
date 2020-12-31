@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Domain.Interfaces.Services
 {
-    interface IAddressService : IServiceBase<Address>
+    public interface IAddressService : IServiceBase<Address>
     {
     }
 }

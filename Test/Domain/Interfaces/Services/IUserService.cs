@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Domain.Interfaces.Services
 {
-    interface IUserService : IServiceBase<User>
+    public interface IUserService : IServiceBase<User>
     {
         User GetByCredential(string email, string password);
     }

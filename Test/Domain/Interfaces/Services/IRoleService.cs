@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Domain.Interfaces.Services
 {
-    interface IRoleService : IServiceBase<Role>
+    public interface IRoleService : IServiceBase<Role>
     {
         Role GetByUserId(int userId);
     }
