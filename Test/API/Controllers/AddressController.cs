@@ -54,7 +54,7 @@ namespace API.Controllers
             {
                 var addressDtos = _addressBusinessService.GetAddressPager(filter, addressId, pageSize, page);
 
-                return Ok(addressDtos);
+                return StatusCode(200, addressDtos);
             }
             catch (ValidationException ve)
             {
@@ -126,7 +126,7 @@ namespace API.Controllers
                 var addressDB = await _addressBusinessService.AddAsync(body);
 
                 if (addressDB.Id != 0)
-                    return StatusCode(204);
+                    return StatusCode(204, true);
                 else
                     return StatusCode(201);
             }

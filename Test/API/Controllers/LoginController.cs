@@ -16,12 +16,10 @@ namespace API.Controllers
     [Authorize("Bearer")]
     public class LoginController : ControllerBase
     {
-        private readonly ILogger<LoginController> _logger;
         private readonly IAuthenticationBusinessService _authenticationBusinessService;
 
-        public LoginController(ILogger<LoginController> logger, IAuthenticationBusinessService authenticationBusinessService)
+        public LoginController(IAuthenticationBusinessService authenticationBusinessService)
         {
-            _logger = logger;
             _authenticationBusinessService = authenticationBusinessService;
         }
 
