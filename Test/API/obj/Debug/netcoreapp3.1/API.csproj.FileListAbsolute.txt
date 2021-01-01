@@ -58,3 +58,11 @@ D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\API\obj\Debug\netcoreapp3.
 D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\API\obj\Debug\netcoreapp3.1\API.dll
 D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\API\obj\Debug\netcoreapp3.1\API.pdb
 D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\API\obj\Debug\netcoreapp3.1\API.genruntimeconfig.cache
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Users\aliso\Desktop\Projects\Versionados\Test\Test\API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

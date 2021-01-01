@@ -1,4 +1,4 @@
-using Infrastructure.Data.Context;
+﻿using Infrastructure.Data.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -22,6 +22,10 @@ using Microsoft.AspNetCore.Http;
 using System.Security.Principal;
 using Service.Interfaces.Generics;
 using Service.Session;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Service.Utils.Helpers.LoginConfiguration;
+using Microsoft.Extensions.Options;
 
 namespace API
 {
@@ -43,11 +47,58 @@ namespace API
             //    opt => opt.UseSqlServer(connection, op => op.EnableRetryOnFailure())
             //);
 
+            //Athentication Login
+            var signing = new Signing();
+            services.AddSingleton(signing);
 
-            //Inje��o de depend�ncias
+            var tokenConfigurations = new Token();
+
+            new ConfigureFromConfigurationOptions<Token>(
+                Configuration.GetSection("TokenConfigurations") //TokenConfigurations AppSettingsJson
+            ).Configure(tokenConfigurations);
+
+            services.AddSingleton(tokenConfigurations);//Configuring the three attributes in class getting the json settings
+
+            services.AddAuthentication(authOptions =>
+            {
+                authOptions.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                authOptions.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(bearerOptions =>
+            {
+                var paramsValidation = bearerOptions.TokenValidationParameters;
+                paramsValidation.IssuerSigningKey = signing.Key;
+                paramsValidation.ValidAudience = tokenConfigurations.Audience;
+                paramsValidation.ValidIssuer = tokenConfigurations.Issuer;
+
+                // Validates the signing of a received token
+                paramsValidation.ValidateIssuerSigningKey = true;
+
+                // Checks if a received token is still valid
+                paramsValidation.ValidateLifetime = true;
+
+                // Tolerance time for the expiration of a token (used in case
+                // of time synchronization problems between different
+                // computers involved in the communication process)
+                paramsValidation.ClockSkew = TimeSpan.Zero;
+            });
+
+            services.AddAuthorization(auth =>
+            {
+                auth.AddPolicy("user", policy => policy.RequireClaim("Store", "user"));
+                auth.AddPolicy("admin", policy => policy.RequireClaim("Store", "admin"));
+                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
+                    .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme‌​)
+                    .RequireAuthenticatedUser()
+                    .Build());
+                //filtros de autenticação
+            });
+
+            //Injeção de dependências
             services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
 
             services.AddScoped(typeof(ISessionCurrent), typeof(SessionCurrent));
+
+            services.AddScoped(typeof(IAuthenticationBusinessService), typeof(AuthenticationBusinessService));
 
             services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
             services.AddScoped(typeof(IUserService), typeof(UserService));
@@ -97,7 +148,7 @@ namespace API
 
             app.UseAuthorization();
 
-            app.UseAuthentication();
+            //app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {

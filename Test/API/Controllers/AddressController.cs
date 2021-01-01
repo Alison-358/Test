@@ -1,5 +1,6 @@
 ﻿using Domain.Dto;
 using Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Service.Exceptions;
@@ -13,8 +14,10 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
+    [Route("api/[controller]")]
+    [Authorize("Bearer")]
     [ApiController]
-    [Route("[controller]")]
+    //[Route("[controller]")]
     public class AddressController : ControllerBase
     {
         private readonly ILogger<AddressController> _logger;
@@ -110,7 +113,7 @@ namespace API.Controllers
         /// <response code="500">Internal exception</response>
         [HttpPost]
         [Route("/api/address")]
-        //[Authorize("admin")]
+        [Authorize("admin")]
         public async Task<IActionResult> AddAddress([FromBody][Required] AddressDto body)
         {
             try
@@ -145,7 +148,7 @@ namespace API.Controllers
         /// <response code="500">Internal exception</response>
         [HttpPut]
         [Route("/api/address")]
-        //[Authorize("admin")]
+        [Authorize("admin")]
         public async Task<IActionResult> EditAddress([FromBody][Required] AddressDto body)
         {
             try
@@ -180,7 +183,7 @@ namespace API.Controllers
         [HttpDelete]
         [Route("/api/address/{addressId}")]
         [ProducesResponseType(statusCode: 204)]
-        //[Authorize("admin")]
+        [Authorize("admin")]
         public IActionResult RemoveAddress([FromRoute][Required] int addressId)
         {
             try

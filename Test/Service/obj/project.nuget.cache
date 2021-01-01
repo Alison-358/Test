@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "DmS/YZWzsW7nDX3SyOertIlqiV9vLigOCI1e17WHtbtZXNAeJajwHCbdOKvqY1v9ZNe/g1PpMMZ+c8hpjVNPMQ==",
+  "dgSpecHash": "1mKviWjvy4LfWNpv8kx8DldbHVpyJXvswFOy+ScUm5ga0ZwOrTLb/mdDF4Kboi99tkRI7IUD8nS75IBEdGTMhg==",
   "success": true,
   "projectFilePath": "D:\\Users\\aliso\\Desktop\\Projects\\Versionados\\Test\\Test\\Service\\Service.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Alisson\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.8.0\\microsoft.identitymodel.jsonwebtokens.6.8.0.nupkg.sha512",
+    "C:\\Users\\Alisson\\.nuget\\packages\\microsoft.identitymodel.logging\\6.8.0\\microsoft.identitymodel.logging.6.8.0.nupkg.sha512",
+    "C:\\Users\\Alisson\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.8.0\\microsoft.identitymodel.tokens.6.8.0.nupkg.sha512",
+    "C:\\Users\\Alisson\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.8.0\\system.identitymodel.tokens.jwt.6.8.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

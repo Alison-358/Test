@@ -26,7 +26,7 @@ namespace Service.Services
 
         private void SetDateAndUserValuesBySession(AddressDto addressDto)
         {
-            addressDto.LastUpdateUser = "Sem sessão por enquanto";//_sessionCurrent.UserName();
+            addressDto.LastUpdateUser = _sessionCurrent.UserName();
             addressDto.LastUpdateDate = DateTime.Now;
         }
 
