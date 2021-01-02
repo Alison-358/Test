@@ -39,11 +39,11 @@ namespace API.Controllers
             }
             catch (ValidationException ve)
             {
-                return base.StatusCode(400, ve);
+                return base.StatusCode(400, ve.Message);
             }
             catch (Exception ex)
             {
-                return base.StatusCode(500, ex);
+                return base.StatusCode(500, ex.Message);
             }
         }
     }

@@ -2,12 +2,6 @@ $(document).ready(function(){
     if(sessionStorage.getItem("token") == "" || sessionStorage.getItem("token") == null){
         window.location = "login.html";
     }else{
-        if(sessionStorage.getItem("editId") == "" || sessionStorage.getItem("editId") == null){
-            window.location = "login.html";
-        }else{
-            GetAddressById();
-        }
-        //GetAddresslist();
     }
 });
 
@@ -26,7 +20,7 @@ function LogOut(){
     }
 }
 
-function editAddress() {
+function newAddress() {
 
     if($("#description").val() == "" || $("#description").val() == undefined || $("#description").val() == null){
         $('#messageModal').modal('show');
@@ -54,9 +48,9 @@ function editAddress() {
 
     var options = {};
     options.url = "https://localhost:44356/api/Address";
-    options.type = "PUT";
+    options.type = "POST";
     var obj = {};
-    obj.id = parseInt($("#id").val());
+    obj.id = 0;
     obj.description = $("#description").val();
     obj.number = $("#number").val();
     obj.complement = $("#complement").val();
@@ -69,7 +63,6 @@ function editAddress() {
     };
     options.success = function (obj) {
             
-        sessionStorage.removeItem("editId");
         $('#messageModal').modal('show');
         $("#titleMessageModal").html("Success");
         $("#responseSuccess").css("display","block");
@@ -81,14 +74,13 @@ function editAddress() {
     };
     options.error = function (request, status, error) {
 
-        if(request.responseText == "" || request.responseText == undefined){
+        if(request.responseText == "" || request.responseText == undefined) {
             if(request.status == 403){
                 request.responseText = "Status: " + request.status + " Error: Without authorization";
             }else{
                 request.responseText = "Status: " + request.status + " Error: Request failed with server";
             }
         }
-            
 
         $('#messageModal').modal('show');
         $("#titleMessageModal").html("Error");
@@ -104,50 +96,4 @@ function editAddress() {
         }
     };
     $.ajax(options);
-}
-
-function GetAddressById(){
-
-    var options = {};
-    options.url = "https://localhost:44356/api/Address/" + encodeURIComponent(sessionStorage.getItem("editId"));
-    options.type = "GET";
-    options.beforeSend = function (request) {
-        request.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"));
-    };
-    options.dataType = "json";
-    options.success = function (data) {
-
-        if(data != null && data != undefined && data != ""){
-            $('#description').val(data.description);
-            $('#number').val(data.number);
-            $('#complement').val(data.complement);
-            $('#neighborhood').val(data.neighborhood);
-            $('#id').val(data.id);
-        }else{
-            $('#messageModal').modal('show');
-            $("#titleMessageModal").html("Error");
-            $("#responseError").css("display","block");
-            $("#responseError").html("Address not found");
-        }
-    };
-    options.error = function (request, message, message) {  
-
-        if(request.responseText == "" || request.responseText == undefined)
-            request.responseText = "Status: " + request.status + " Error: Request failed with server";//GetErrors(request);
-        
-        $('#messageModal').modal('show');
-        $("#titleMessageModal").html("Error");
-        $("#responseError").css("display","block");
-        $("#responseError").html(request.responseText);
-        if(request.status == 401 || request.status == 0){
-            sessionStorage.clear("token");
-            setTimeout(function()
-            { 
-                window.location = "login.html";
-            }, 2000);
-            return;
-        }
-    };
-    $.ajax(options);
-
 }

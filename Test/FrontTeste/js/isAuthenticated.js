@@ -79,7 +79,7 @@ function GetAddresslist(){
         options.error = function (request, message, message) {  
             busyi.hide();    
 
-            if(request.responseText == "")
+            if(request.responseText == "" || request.responseText == undefined)
                 request.responseText = "Status: " + request.status + " Error: Request failed with server";//GetErrors(request);
             
             $('#messageModal').modal('show');
@@ -112,11 +112,58 @@ function LogOut(){
 }
 
 function edit(id){
-    alert(id);
+    sessionStorage.setItem("editId", id);
+    window.location = "edit.html";
 }
 
 function deleteAddress(id){
-    alert(id);
+    
+    var options = {};
+    options.url = "https://localhost:44356/api/Address/"  + encodeURIComponent(id);
+    options.type = "DELETE";
+    var obj = {};
+    options.data = JSON.stringify(obj);
+    options.contentType = "application/json";
+    options.dataType = "json";
+    options.beforeSend = function (request) {
+        request.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"));
+    };
+    options.success = function (obj) {
+            
+        sessionStorage.removeItem("editId");
+        $('#messageModal').modal('show');
+        $("#titleMessageModal").html("Success");
+        $("#responseSuccess").css("display","block");
+        $("#responseSuccess").html("Success when deleting");
+        setTimeout(function()
+        { 
+            window.location = "index.html";
+        }, 2000);           
+    };
+    options.error = function (request, status, error) {
+
+        if(request.responseText == "" || request.responseText == undefined){
+            if(request.status == 403){
+                request.responseText = "Status: " + request.status + " Error: Without authorization";
+            }else{
+                request.responseText = "Status: " + request.status + " Error: Request failed with server";
+            }
+        }
+
+        $('#messageModal').modal('show');
+        $("#titleMessageModal").html("Error");
+        $("#responseError").css("display","block");
+        $("#responseError").html(request.responseText);
+        if(request.status == 401 || request.status == 0){
+            sessionStorage.clear("token");
+            setTimeout(function()
+            { 
+                window.location = "login.html";
+            }, 2000);
+            return;
+        }
+    };
+    $.ajax(options);
 }
 
 function ShowStatistic(){

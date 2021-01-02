@@ -52,7 +52,7 @@ function Login(){
         };
         options.error = function (request, status, error) {
 
-            if(request.responseText == "")
+            if(request.responseText == "" || request.responseText == undefined)
                 request.responseText = "Status: " + request.status + " Error: Request failed with server";
 
             $('#messageModal').modal('show');

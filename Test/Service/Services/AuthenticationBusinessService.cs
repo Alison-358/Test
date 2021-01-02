@@ -28,7 +28,7 @@ namespace Service.Services
             userLogin = (UserLoginDto)_userService.GetByCredential(userLogin.Email, userLogin.Password);
 
             if (userLogin == null)
-                throw new InvalidOperationException("Usuário não encontrado, verefique as credenciais.");
+                throw new InvalidOperationException("User not found, check credentials.");
 
             LoginConfig loginConfig = new LoginConfig();
 
