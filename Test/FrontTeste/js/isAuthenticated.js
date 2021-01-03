@@ -32,7 +32,7 @@ function GetAddresslist(){
         options.dataType = "json";
         options.success = function (data) {
             var datas = data;
-
+            busyi.hide();
             //if(data.statusCode == 200){
                 if(data.totalRows > 0){
                     $("#tbodyTable").html("");

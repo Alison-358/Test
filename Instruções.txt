@@ -1,0 +1,13 @@
+1- É necessário trocar a string de conexão do sql server para uma conexão local onde será testado o APP.
+Caminho do arquivo onde está a conexão -> Infrastructure.Data.Context.
+
+2- É necessário rodar o script que está na pasta raiz do projeto (script.sql).
+
+3- Usuários
+Usuário admin
+Login: alison@gmail.com
+Senha: Alison
+
+Usuário comum com acesso apenas a leitura.
+Login: jose@gmail.com
+Senha: jose

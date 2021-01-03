@@ -10,7 +10,7 @@ namespace Infrastructure.Data.Context
     {
         public DatabaseContext CreateDbContext(string[] args)
         {
-            //Configurando contexto para migrations
+            //Config to migrations
             var optionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
             optionsBuilder.UseSqlServer(this.GetStringConnectionConfig());
 
